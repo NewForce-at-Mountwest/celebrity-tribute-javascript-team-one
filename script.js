@@ -30,6 +30,7 @@ const linData = {
         url: "https://www.npr.org/2019/01/08/683284098/lin-manuel-miranda-and-hamilton-partners-save-a-manhattan-theater-bookstore",
         date: "1/8/19"
       }
+
     ],
     personalLife: {
       birthDate: "January 16, 1980",
@@ -93,6 +94,8 @@ const linData = {
 
 
     function makeNews(){newsFeed = document.createElement('div')
+//   loop for newsfeed
+
   for(i = 0;  i < linData.newsfeed.length; i++){
     const oneList = document.createElement('a');
     oneList.className ="news-title";
@@ -148,3 +151,19 @@ const linData = {
 
 
 
+//   loop for arrays in executive summary
+
+function listItems(arrayParam){
+    const knownCollabs = document.createElement('ul')
+    knownCollabs.textContent = "Known Collaborators"
+    for (i = 0; i < arrayParam.length; i++){
+        const people = document.createElement('li')
+        people.textContent = arrayParam[i];
+        knownCollabs.appendChild(people);
+
+   
+}
+return knownCollabs;
+}
+const megan = listItems(linData.executiveSummary.knownCollaborations);
+console.log(megan);
