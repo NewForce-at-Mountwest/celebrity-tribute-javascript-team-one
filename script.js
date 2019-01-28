@@ -64,6 +64,11 @@ const linData = {
       countryOfResidence: "United States"
     }
   }
+
+
+
+//   loop for newsfeed links
+
   //need function that loops through lindata.newfeed to get A tag with title and url with a date underneather. should display like <div><a href="#><h2>$words</h2></a></div>" then post the dom
 // function makeNews(){newsFeed = document.createElement('div');
 //   for(i = 0;  i < linData.newsfeed.length; i++){
@@ -129,6 +134,7 @@ console.log(boo);
   
  
 //   loop for newsfeed
+
 function makeNews(){newsFeed = document.createElement('div')
   for(i = 0;  i < linData.newsfeed.length; i++){
     const oneList = document.createElement('a');
@@ -156,6 +162,19 @@ function listItems(arrayParam){
 }
 return knownCollabs;
 }
+// const megan = listItems(linData.executiveSummary.knownCollaborations);
+// console.log(megan);
+
+// function for images with alt text and a caption below, hopefully!
+function img_create(src, alt, title) {
+    var img = document.createElement('img');
+    img.src = src;
+    if ( alt != null ) img.alt = "Lin-Manuel Miranda";
+    if ( alt != null ) img.title = title;
+    return img;
+}
+// const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
+
 const megan = listItems(linData.executiveSummary.knownCollaborations);
 console.log(megan);
 
