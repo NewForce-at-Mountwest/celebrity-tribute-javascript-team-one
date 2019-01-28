@@ -94,3 +94,15 @@ return knownCollabs;
 }
 const megan = listItems(linData.executiveSummary.knownCollaborations);
 console.log(megan);
+
+// creating a function to create an image element that accepts parameters for various data, should include a caption or alt text as well
+
+function makeImages (imageParam, altText){
+    const imageHolder = document.createElement('IMG')
+    imageHolder.textContent = altText;
+    return makeImages;
+}
+
+    const imgs = makeImages (linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption);
+
+    console.log(imgs);
