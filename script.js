@@ -103,9 +103,8 @@ const linData = {
 function createAListofDates(arrayParam){
   newsFeed = document.createElement('div');
 for(i = 0;  i < arrayParam.length; i++){
-  const oneList = document.createElement('a');
+  const oneList = document.createElement('h4');
   oneList.className ="news-title";
-  oneList.href = arrayParam[i].url;
   oneList.textContent = arrayParam[i].date;
   newsFeed.appendChild(oneList);
   }
@@ -145,7 +144,7 @@ function makeNews(){newsFeed = document.createElement('div')
     }
     return newsFeed;
 }
-  const boo = makeNews();
+  const bar = makeNews();
   console.log(boo);
 
 //   loop for arrays in executive summary
