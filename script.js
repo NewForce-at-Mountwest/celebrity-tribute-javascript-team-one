@@ -95,6 +95,70 @@ const linData = {
     console.log(summaryCountryCatcher)
     
     function makeNews(){newsFeed = document.createElement('div')
+  //need function that loops through lindata.newfeed to get A tag with title and url with a date underneather. should display like <div><a href="#><h2>$words</h2></a></div>" then post the dom
+// function makeNews(){newsFeed = document.createElement('div');
+//   for(i = 0;  i < linData.newsfeed.length; i++){
+//     const oneList = document.createElement('a');
+//     oneList.className ="news-title";
+//     oneList.href = linData.newsfeed[i].url;
+//     oneList.textContent = linData.newsfeed[i].title;
+//     newsFeed.appendChild(oneList);
+//     const date = document.createElement('h4');
+//     date.className = "dateList";
+//     date.textContent = linData.newsfeed[i].date;
+//     newsFeed.appendChild(date);
+//     }
+//     return newsFeed;
+// }
+//   const boo = makeNews();
+//   console.log(boo);
+
+//makes a clickable link
+  function createAList(arrayParam){
+    newsFeed = document.createElement('div');
+  for(i = 0;  i < arrayParam.length; i++){
+    const oneList = document.createElement('a');
+    oneList.className ="news-title";
+    oneList.href = arrayParam[i].url;
+    oneList.textContent = arrayParam[i].title;
+    newsFeed.appendChild(oneList);
+    }
+  return newsFeed;
+}
+
+function createAListofDates(arrayParam){
+  newsFeed = document.createElement('div');
+for(i = 0;  i < arrayParam.length; i++){
+  const oneList = document.createElement('a');
+  oneList.className ="news-title";
+  oneList.href = arrayParam[i].url;
+  oneList.textContent = arrayParam[i].date;
+  newsFeed.appendChild(oneList);
+  }
+return newsFeed;
+}
+
+
+
+const foo = createAListofDates(linData.newsfeed);
+console.log(createAListofDates(linData.newsfeed));
+
+
+const boo = createAList(linData.newsfeed)
+console.log(boo);
+
+
+ function makeh2Heading(object, ClassName){
+    headingh2 = document.createElement('h2');
+    headingh2.className = ClassName;
+    headingh2.textContent = object;
+    return headingh2;    
+  }
+
+  const heading = makeh2Heading(linData.executiveSummary.countryOfResidence, "h2heading");
+  console.log(heading);
+  
+ 
 //   loop for newsfeed
 
   for(i = 0;  i < linData.newsfeed.length; i++){
