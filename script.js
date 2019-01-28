@@ -55,7 +55,7 @@ const linData = {
       awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
     },
     executiveSummary: {
-      knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
+      knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee Elise Goldsberry", "Phillipa Soo"],
       image: {
         photURL: "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000",
         caption: "Lin Manuel Miranda Headshot"
@@ -64,7 +64,6 @@ const linData = {
       countryOfResidence: "United States"
     }
   }
-
   //need function that loops through lindata.newfeed to get A tag with title and url with a date underneather. should display like <div><a href="#><h2>$words</h2></a></div>" then post the dom
 // function makeNews(){newsFeed = document.createElement('div');
 //   for(i = 0;  i < linData.newsfeed.length; i++){
@@ -129,3 +128,34 @@ console.log(boo);
   console.log(heading);
   
  
+//   loop for newsfeed
+function makeNews(){newsFeed = document.createElement('div')
+  for(i = 0;  i < linData.newsfeed.length; i++){
+    const oneList = document.createElement('a');
+    oneList.className ="news-title";
+    oneList.href = linData.newsfeed[i].url;
+    oneList.textContent = linData.newsfeed[i].title;
+    newsFeed.appendChild(oneList);
+    }
+    return newsFeed;
+}
+  const boo = makeNews();
+  console.log(boo);
+
+//   loop for arrays in executive summary
+
+function listItems(arrayParam){
+    const knownCollabs = document.createElement('ul')
+    knownCollabs.textContent = "Known Collaborators"
+    for (i = 0; i < arrayParam.length; i++){
+        const people = document.createElement('li')
+        people.textContent = arrayParam[i];
+        knownCollabs.appendChild(people);
+
+   
+}
+return knownCollabs;
+}
+const megan = listItems(linData.executiveSummary.knownCollaborations);
+console.log(megan);
+
