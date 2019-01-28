@@ -83,6 +83,31 @@ function makeNews(){newsFeed = document.createElement('div');
   const boo = makeNews();
   console.log(boo);
 
+//makes a clickable link
+  function createAList(arrayParam){
+    newsFeed = document.createElement('div');
+  for(i = 0;  i < arrayParam.length; i++){
+    const oneList = document.createElement('a');
+    oneList.className ="news-title";
+    oneList.href = arrayParam[i].url;
+    oneList.textContent = arrayParam[i].title;
+    newsFeed.appendChild(oneList);
+return newsFeed;
+  }
+const boo = createAList(lin.newsFeed)
+console.log(boo);
+
+
+function createH4(arrayParam, ClassName){
+  for(i = 0;  i < arrayParam.length; i++){
+    const date = document.createElement('h4');
+    date.className = ClassName;
+    date.textContent = arrayParam[i];
+    }
+    return date;
+}
+
+const doo = createH4 (linData.newsFeed[0].date, dateList);
   document.querySelector("#news-feed").appendChild(boo);
 
   function makeh2Heading(object, ClassName){
