@@ -93,6 +93,9 @@ const linData = {
     console.log(careerIntroCatcher)
     const summaryCountryCatcher = makePElement(linData.executiveSummary.countryOfResidence)
     console.log(summaryCountryCatcher)
+    // trying out the P function for country of residency in Executive summary
+    const countryExec = makePElement(linData.executiveSummary.countryOfResidence);
+    // console.log(countryExec);
     
     function makeNews(){newsFeed = document.createElement('div')
 }
@@ -145,8 +148,8 @@ const foo = createAListofDates(linData.newsfeed);
 console.log(createAListofDates(linData.newsfeed));
 
 
-const boo = createAList(linData.newsfeed)
-console.log(boo);
+const doo = createAList(linData.newsfeed)
+console.log(doo);
 
 
  function makeh2Heading(object, ClassName){
@@ -191,17 +194,28 @@ return knownCollabs;
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
 
-// function for images with alt text and a caption below, hopefully!
-function img_create(src, alt, title) {
-    var img = document.createElement('img');
+// function for images with alt text and a caption below, hopefully! removed alt, title in param-
+function img_Lin(src, paragraphTitle) 
+{
+    const img = document.createElement('img');
+    const divIM = document.createElement('div');
+    const paraIM = document.createElement('p');
+    paraIM.textContent = paragraphTitle;
     img.src = src;
-    if ( alt != null ) img.alt = "Lin-Manuel Miranda";
-    if ( alt != null ) img.title = title;
-    return img;
+    divIM.appendChild(img);
+    divIM.appendChild(paraIM);
+    return divIM;
 }
-    
-// const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
 
-const megan = listItems(linData.executiveSummary.knownCollaborations);
-console.log(megan);
+// Printed Known Collaborators list to the DOM on Executive Summary
+let knownPeeps = listItems(linData.executiveSummary.knownCollaborations)
+const exeC = document.querySelector("#executive-summary");
+exeC.appendChild(knownPeeps);
+
+// Adding Image and Caption to Executive Summary
+let headShot = img_Lin(linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption)
+const Lin_headshot = document.querySelector("#executive-summary");
+Lin_headshot.appendChild(headShot);
+
+
 
