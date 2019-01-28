@@ -85,3 +85,12 @@ function makeNews(){newsFeed = document.createElement('div');
 
   document.querySelector("#news-feed").appendChild(boo);
 
+  function makeh2Heading(object, ClassName){
+    headingh2 = document.createElement('h2');
+    headingh2.className = ClassName;
+    headingh2.textContent = object;
+    return headingh2;    
+  }
+  const heading = makeh2Heading(linData.executiveSummary.countryOfResidence, "h2heading");
+  console.log(heading);
+
