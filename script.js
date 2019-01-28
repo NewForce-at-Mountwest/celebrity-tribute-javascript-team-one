@@ -30,11 +30,11 @@ const linData = {
         url: "https://www.npr.org/2019/01/08/683284098/lin-manuel-miranda-and-hamilton-partners-save-a-manhattan-theater-bookstore",
         date: "1/8/19"
       }
-  
+
     ],
     personalLife: {
       birthDate: "January 16, 1980",
-      birthLocation: "New York City",
+      birthLocation: "New York City",   
       cityOfResidence: "New York City",
       nationality: "Puerto Rican, American",
       family: {
@@ -48,12 +48,13 @@ const linData = {
       }
     },
     career: {
-      shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
+      shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
       MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
       notableRoles: ["Usnavi", "Alexander Hamilton"],
       notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
       awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
     },
+    
     executiveSummary: {
       knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee Elise Goldsberry", "Phillipa Soo"],
       image: {
@@ -64,11 +65,37 @@ const linData = {
       countryOfResidence: "United States"
     }
   }
+    // writing loops for printing the personalLife object to the DOM. Individual functions for the the individual keys. Concatenate the arrays with only 2 items in them.
 
+    function makePElement(paraValueParam){
+    const paragraph = document.createElement('p');
+    paragraph.textContent=paraValueParam;
+    return paragraph
+    }
 
-
-//   loop for newsfeed links
-
+    const bdayCatcher = makePElement(linData.personalLife.birthDate)
+    console.log(bdayCatcher)
+    const blCatcher = makePElement(linData.personalLife.birthLocation)
+    console.log(blCatcher)
+    const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
+    console.log(cityCatcher)
+    const nationCatcher = makePElement(linData.personalLife.nationality)
+    console.log(nationCatcher)
+    const spouseCatcher = makePElement(linData.personalLife.family.spouse)
+    console.log(spouseCatcher)
+    const kidsCatcher = makePElement(linData.personalLife.family.kids)
+    console.log(kidsCatcher)
+    const parentsCatcher = makePElement(linData.personalLife.family.parents)
+    console.log(parentsCatcher)
+    const petsCatcher = makePElement(linData.personalLife.family.pets)
+    console.log(petsCatcher)
+    const careerIntroCatcher = makePElement(linData.career.shortIntro)
+    console.log(careerIntroCatcher)
+    const summaryCountryCatcher = makePElement(linData.executiveSummary.countryOfResidence)
+    console.log(summaryCountryCatcher)
+    
+    function makeNews(){newsFeed = document.createElement('div')
+}
   //need function that loops through lindata.newfeed to get A tag with title and url with a date underneather. should display like <div><a href="#><h2>$words</h2></a></div>" then post the dom
 // function makeNews(){newsFeed = document.createElement('div');
 //   for(i = 0;  i < linData.newsfeed.length; i++){
@@ -148,6 +175,7 @@ function makeNews(){newsFeed = document.createElement('div')
   const boo = makeNews();
   console.log(boo);
 
+
 //   loop for arrays in executive summary
 
 function listItems(arrayParam){
@@ -157,9 +185,7 @@ function listItems(arrayParam){
         const people = document.createElement('li')
         people.textContent = arrayParam[i];
         knownCollabs.appendChild(people);
-
-   
-}
+   }
 return knownCollabs;
 }
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
@@ -173,6 +199,7 @@ function img_create(src, alt, title) {
     if ( alt != null ) img.title = title;
     return img;
 }
+    
 // const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
 
 const megan = listItems(linData.executiveSummary.knownCollaborations);
