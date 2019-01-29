@@ -71,14 +71,18 @@ const paragraph = document.createElement('p');
 paragraph.textContent=paraValueParam;
 return paragraph
 }
+
 // this function creates p elements with a class tag 
+
 function makestyledPElement(paraValueParam, style){
   const paragraph = document.createElement('p');
   paragraph.className = style;
   paragraph.textContent=paraValueParam;
   return paragraph
   }
+
 //these variables call the functions above, creating the p elements
+
   const bdayKey = makestyledPElement("Birth Date", "personalKey")
   const blocationKey = makestyledPElement("Birth Location", "personalKey")
   const cityKey = makestyledPElement("City of Residence", "personalKey")
@@ -88,7 +92,7 @@ function makestyledPElement(paraValueParam, style){
   const kidsKey = makestyledPElement("(Kids)", "personalKey")
   const parentsKey = makestyledPElement("(Parents)", "personalKey")
   const petsKey = makestyledPElement("(Pets)", "personalKey")
-  
+
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
 const blCatcher = makePElement(linData.personalLife.birthLocation)
 const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
@@ -110,7 +114,9 @@ const c = document.querySelector("#career")
 const summaryHeading = makeh2Heading("Executive Summary", "career-heading");
 e.appendChild(summaryHeading);
 e.appendChild(summaryCountryCatcher);
+
 // appendChild method writes the objects to the DOM
+
 const personalHeading = makeh2Heading("Personal Information", "career-heading");
 p.appendChild(personalHeading);
 p.appendChild(bdayKey);
