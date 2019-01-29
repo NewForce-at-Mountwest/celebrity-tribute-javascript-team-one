@@ -65,7 +65,7 @@ const linData = {
       countryOfResidence: "United States"
     }
   }
-    // writing loops for printing the personalLife object to the DOM. Individual functions for the the individual keys. Concatenate the arrays with only 2 items in them.
+    // this function creates P elements. The parameters are the key values in the object
 
     function makePElement(paraValueParam){
     const paragraph = document.createElement('p');
@@ -73,29 +73,43 @@ const linData = {
     return paragraph
     }
 
+
     const bdayCatcher = makePElement(linData.personalLife.birthDate)
-    console.log(bdayCatcher)
     const blCatcher = makePElement(linData.personalLife.birthLocation)
-    console.log(blCatcher)
     const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
-    console.log(cityCatcher)
     const nationCatcher = makePElement(linData.personalLife.nationality)
-    console.log(nationCatcher)
     const spouseCatcher = makePElement(linData.personalLife.family.spouse)
-    console.log(spouseCatcher)
     const kidsCatcher = makePElement(linData.personalLife.family.kids)
-    console.log(kidsCatcher)
     const parentsCatcher = makePElement(linData.personalLife.family.parents)
-    console.log(parentsCatcher)
     const petsCatcher = makePElement(linData.personalLife.family.pets)
-    console.log(petsCatcher)
     const careerIntroCatcher = makePElement(linData.career.shortIntro)
-    console.log(careerIntroCatcher)
     const summaryCountryCatcher = makePElement(linData.executiveSummary.countryOfResidence)
-    console.log(summaryCountryCatcher)
     
-    function makeNews(){newsFeed = document.createElement('div')
-}
+    // throw other p elements into the respective div containers with document query selectors and append child methods
+
+    // function makeNews(){newsFeed = document.createElement('div')
+
+
+const p = document.querySelector("#personal-life")
+const e = document.querySelector("#executive-summary")
+const n = document.querySelector("#news-feed")
+const c = document.querySelector("#career")
+
+p.appendChild(bdayCatcher);
+p.appendChild(blCatcher);
+p.appendChild(cityCatcher);
+p.appendChild(nationCatcher);
+p.appendChild(spouseCatcher);
+p.appendChild(kidsCatcher);
+p.appendChild(parentsCatcher);
+p.appendChild(petsCatcher);
+
+e.appendChild(summaryCountryCatcher);
+
+c.appendChild(careerIntroCatcher)
+
+
+
   //need function that loops through lindata.newfeed to get A tag with title and url with a date underneather. should display like <div><a href="#><h2>$words</h2></a></div>" then post the dom
 // function makeNews(){newsFeed = document.createElement('div');
 //   for(i = 0;  i < linData.newsfeed.length; i++){
@@ -172,8 +186,8 @@ function makeNews(){newsFeed = document.createElement('div')
     }
     return newsFeed;
 }
-  const boo = makeNews();
-  console.log(boo);
+//   const boo = makeNews();
+//   console.log(boo);
 
 
 //   loop for arrays in executive summary
@@ -204,4 +218,8 @@ function img_create(src, alt, title) {
 
 const megan = listItems(linData.executiveSummary.knownCollaborations);
 console.log(megan);
+
+// document.querySelector("#personal-life").innerHTML =
+//  makePElement(linData.personalLife.birthDate)
+
 
