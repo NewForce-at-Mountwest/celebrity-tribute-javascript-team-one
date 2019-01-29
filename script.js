@@ -198,12 +198,16 @@ function listItems(arrayParam,listName) {
 // console.log(megan);
 
 // function for images with alt text and a caption below, hopefully!
-function img_create(src, alttag, caption) {
+function img_create(urlLocation, alttag, captionwords) {
+  var picContainer = document.createElement('figure');
   var img = document.createElement('img');
-  img.src = src;
+  img.src = urlLocation;
   img.alt = alttag;
-  img.title = caption;
-  return img;
+  picContainer.appendChild(img);
+  var caption = document.createElement('figcaption');
+  caption.textContent = captionwords;
+  picContainer.appendChild(caption);
+  return picContainer;
 }
 
 const img = img_create(linData.executiveSummary.image.photURL, "Picture of Lin", linData.executiveSummary.image.caption)
