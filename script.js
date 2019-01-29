@@ -120,21 +120,15 @@ const personalHeading = makeh2Heading("Personal Information", "career-heading");
 p.appendChild(personalHeading);
 p.appendChild(bdayKey);
 p.appendChild(bdayCatcher);
-p.appendChild(blocationKey);
 p.appendChild(blCatcher);
-p.appendChild(cityKey);
 p.appendChild(cityCatcher);
-p.appendChild(nationKey);
 p.appendChild(nationCatcher);
-p.appendChild(familyKey);
-p.appendChild(spouseKey)
 p.appendChild(spouseCatcher);
-p.appendChild(kidsKey)
 p.appendChild(kidsCatcher);
-p.appendChild(parentsKey)
 p.appendChild(parentsCatcher);
-p.appendChild(petsKey)
 p.appendChild(petsCatcher);
+
+
 
 c.appendChild(careerIntroCatcher)
 
@@ -191,7 +185,21 @@ function listItems(arrayParam,listName) {
   }
   return knownCollabs;
 }
+const exSummheading = makeh2Heading("Executive Summary","career-heading")
+e.appendChild(exSummheading);
+e.appendChild(summaryCountryCatcher);
 
+const exPara = listItems(linData.executiveSummary.knownCollaborations,"Known Collaborations")
+e.appendChild(exPara);
+
+const exalias = listItems(linData.executiveSummary.listOfAliases,"Known Aliases")
+e.appendChild(exalias)
+
+
+
+
+
+   
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
 
