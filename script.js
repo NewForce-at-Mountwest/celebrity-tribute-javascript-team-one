@@ -79,7 +79,7 @@ function makestyledPElement(paraValueParam, style){
   return paragraph
   }
 
-  // the following variables call the functions above creating p elements
+  // the following variables call the functions above, creating p elements
 
   const bdayKey = makestyledPElement("Birth Date", "personalKey")
   const blocationKey = makestyledPElement("Birth Location", "personalKey")
@@ -91,7 +91,6 @@ function makestyledPElement(paraValueParam, style){
   const parentsKey = makestyledPElement("(Parents)", "personalKey")
   const petsKey = makestyledPElement("(Pets)", "personalKey")
   
-
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
 const blCatcher = makePElement(linData.personalLife.birthLocation)
 const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
@@ -110,7 +109,7 @@ const e = document.querySelector("#executive-summary")
 const n = document.querySelector("#news-feed")
 const c = document.querySelector("#career")
 
-// theses appendChild methods write the above caught functions to the DOM
+// these appendChild methods write the above caught functions to the DOM
 
 const summaryHeading = makeh2Heading("Executive Summary", "career-heading");
 e.appendChild(summaryHeading);
@@ -127,8 +126,6 @@ p.appendChild(spouseCatcher);
 p.appendChild(kidsCatcher);
 p.appendChild(parentsCatcher);
 p.appendChild(petsCatcher);
-
-
 
 c.appendChild(careerIntroCatcher)
 
@@ -185,9 +182,6 @@ function listItems(arrayParam,listName) {
   }
   return knownCollabs;
 }
-const exSummheading = makeh2Heading("Executive Summary","career-heading")
-e.appendChild(exSummheading);
-e.appendChild(summaryCountryCatcher);
 
 const exPara = listItems(linData.executiveSummary.knownCollaborations,"Known Collaborations")
 e.appendChild(exPara);
@@ -195,22 +189,25 @@ e.appendChild(exPara);
 const exalias = listItems(linData.executiveSummary.listOfAliases,"Known Aliases")
 e.appendChild(exalias)
 
-
-
-
-
-   
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
 
 // function for images with alt text and a caption below, hopefully!
-function img_create(src, alt, title) {
-  var img = document.createElement('img');
-  img.src = src;
-  if (alt != null) img.alt = "Lin-Manuel Miranda";
-  if (alt != null) img.title = title;
-  return img;
+function img_Lin(src, paragraphTitle)
+{
+   const img = document.createElement('img');
+   const divIM = document.createElement('div');
+   const paraIM = document.createElement('p');
+   paraIM.textContent = paragraphTitle;
+   img.src = src;
+   divIM.appendChild(img);
+   divIM.appendChild(paraIM);
+   return divIM;
 }
+
+let headShot = img_Lin(linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption)
+const Lin_headshot = document.querySelector("#executive-summary");
+Lin_headshot.appendChild(headShot);
 // const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
 
 const megan = listItems(linData.executiveSummary.knownCollaborations);
