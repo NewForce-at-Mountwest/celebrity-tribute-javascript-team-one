@@ -71,13 +71,15 @@ const paragraph = document.createElement('p');
 paragraph.textContent=paraValueParam;
 return paragraph
 }
-
+// this function creates a p element with a className so that the elements can be more precisely targeted with CSS styles
 function makestyledPElement(paraValueParam, style){
   const paragraph = document.createElement('p');
   paragraph.className = style;
   paragraph.textContent=paraValueParam;
   return paragraph
   }
+
+  // the following variables call the functions above creating p elements
 
   const bdayKey = makestyledPElement("Birth Date", "personalKey")
   const blocationKey = makestyledPElement("Birth Location", "personalKey")
@@ -88,9 +90,7 @@ function makestyledPElement(paraValueParam, style){
   const kidsKey = makestyledPElement("(Kids)", "personalKey")
   const parentsKey = makestyledPElement("(Parents)", "personalKey")
   const petsKey = makestyledPElement("(Pets)", "personalKey")
-  // birthDate, birth location, city of residence, nationality
-  // family (spouse, kids, parents, pets)
-
+  
 
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
 const blCatcher = makePElement(linData.personalLife.birthLocation)
@@ -105,12 +105,12 @@ const summaryCountryCatcher = makePElement(linData.executiveSummary.countryOfRes
 
 // throw other p elements into the respective div containers with document query selectors and append child methods
 
-// function makeNews(){newsFeed = document.createElement('div')
-
 const p = document.querySelector("#personal-life")
 const e = document.querySelector("#executive-summary")
 const n = document.querySelector("#news-feed")
 const c = document.querySelector("#career")
+
+// theses appendChild methods write the above caught functions to the DOM
 
 const summaryHeading = makeh2Heading("Executive Summary", "career-heading");
 e.appendChild(summaryHeading);
