@@ -72,26 +72,6 @@ paragraph.textContent=paraValueParam;
 return paragraph
 }
 
-function makestyledPElement(paraValueParam, style){
-  const paragraph = document.createElement('p');
-  paragraph.className = style;
-  paragraph.textContent=paraValueParam;
-  return paragraph
-  }
-
-  const bdayKey = makestyledPElement("Birth Date", "personalKey")
-  const blocationKey = makestyledPElement("Birth Location", "personalKey")
-  const cityKey = makestyledPElement("City of Residence", "personalKey")
-  const nationKey = makestyledPElement("Nationality", "personalKey")
-  const familyKey = makestyledPElement("Family", "personalKey")
-  const spouseKey = makestyledPElement("(Spouse)", "personalKey")
-  const kidsKey = makestyledPElement("(Kids)", "personalKey")
-  const parentsKey = makestyledPElement("(Parents)", "personalKey")
-  const petsKey = makestyledPElement("(Pets)", "personalKey")
-  // birthDate, birth location, city of residence, nationality
-  // family (spouse, kids, parents, pets)
-
-
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
 const blCatcher = makePElement(linData.personalLife.birthLocation)
 const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
@@ -112,29 +92,16 @@ const e = document.querySelector("#executive-summary")
 const n = document.querySelector("#news-feed")
 const c = document.querySelector("#career")
 
-const summaryHeading = makeh2Heading("Executive Summary", "career-heading");
-e.appendChild(summaryHeading);
-e.appendChild(summaryCountryCatcher);
-
-const personalHeading = makeh2Heading("Personal Information", "career-heading");
-p.appendChild(personalHeading);
-p.appendChild(bdayKey);
 p.appendChild(bdayCatcher);
-p.appendChild(blocationKey);
 p.appendChild(blCatcher);
-p.appendChild(cityKey);
 p.appendChild(cityCatcher);
-p.appendChild(nationKey);
 p.appendChild(nationCatcher);
-p.appendChild(familyKey);
-p.appendChild(spouseKey)
 p.appendChild(spouseCatcher);
-p.appendChild(kidsKey)
 p.appendChild(kidsCatcher);
-p.appendChild(parentsKey)
 p.appendChild(parentsCatcher);
-p.appendChild(petsKey)
 p.appendChild(petsCatcher);
+
+
 
 c.appendChild(careerIntroCatcher)
 
@@ -191,7 +158,21 @@ function listItems(arrayParam,listName) {
   }
   return knownCollabs;
 }
+const exSummheading = makeh2Heading("Executive Summary","career-heading")
+e.appendChild(exSummheading);
+e.appendChild(summaryCountryCatcher);
 
+const exPara = listItems(linData.executiveSummary.knownCollaborations,"Known Collaborations")
+e.appendChild(exPara);
+
+const exalias = listItems(linData.executiveSummary.listOfAliases,"Known Aliases")
+e.appendChild(exalias)
+
+
+
+
+
+   
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
 
