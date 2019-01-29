@@ -195,8 +195,6 @@ function listItems(arrayParam,listName) {
   }
   return knownCollabs;
 }
-const exSummheading = makeh2Heading("Executive Summary","career-heading")
-e.appendChild(exSummheading);
 e.appendChild(summaryCountryCatcher);
 
 const exPara = listItems(linData.executiveSummary.knownCollaborations,"Known Collaborations")
