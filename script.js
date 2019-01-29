@@ -9,6 +9,7 @@ const linData = {
       url: "https://pagesix.com/2019/01/25/lin-manuel-miranda-is-peeved-about-this-years-oscars/",
       date: "1/25/19",
     },
+   
     {
       title: "Lin-Manuel Miranda in Talks to Write Disney's First Latina Disney Princess",
       url: "https://www.thedailybeast.com/lin-manuel-miranda-in-talks-to-write-disneys-first-latina-princess",
@@ -29,7 +30,6 @@ const linData = {
       url: "https://www.npr.org/2019/01/08/683284098/lin-manuel-miranda-and-hamilton-partners-save-a-manhattan-theater-bookstore",
       date: "1/8/19"
     }
-
   ],
   personalLife: {
     birthDate: "January 16, 1980",
@@ -64,38 +64,58 @@ const linData = {
     countryOfResidence: "United States"
   }
 }
+// this function creates P elements. The parameters are the key values in the object
 
-
-
-// writing loops for printing the personalLife object to the DOM. Individual functions for the the individual keys. Concatenate the arrays with only 2 items in them.
-
-function makePElement(paraValueParam) {
-  paragraph = document.createElement('p');
-  paragraph.textContent = paraValueParam;
-  return paragraph
+function makePElement(paraValueParam){
+const paragraph = document.createElement('p');
+paragraph.textContent=paraValueParam;
+return paragraph
 }
 
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
-console.log(bdayCatcher)
 const blCatcher = makePElement(linData.personalLife.birthLocation)
-console.log(blCatcher)
 const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
-console.log(cityCatcher)
 const nationCatcher = makePElement(linData.personalLife.nationality)
-console.log(nationCatcher)
 const spouseCatcher = makePElement(linData.personalLife.family.spouse)
-console.log(spouseCatcher)
 const kidsCatcher = makePElement(linData.personalLife.family.kids)
-console.log(kidsCatcher)
 const parentsCatcher = makePElement(linData.personalLife.family.parents)
-console.log(parentsCatcher)
 const petsCatcher = makePElement(linData.personalLife.family.pets)
-console.log(petsCatcher)
 const careerIntroCatcher = makePElement(linData.career.shortIntro)
-console.log(careerIntroCatcher)
 const summaryCountryCatcher = makePElement(linData.executiveSummary.countryOfResidence)
-console.log(summaryCountryCatcher)
 
+// throw other p elements into the respective div containers with document query selectors and append child methods
+
+// function makeNews(){newsFeed = document.createElement('div')
+
+const p = document.querySelector("#personal-life")
+const e = document.querySelector("#executive-summary")
+const n = document.querySelector("#news-feed")
+const c = document.querySelector("#career")
+
+p.appendChild(bdayCatcher);
+p.appendChild(blCatcher);
+p.appendChild(cityCatcher);
+p.appendChild(nationCatcher);
+p.appendChild(spouseCatcher);
+p.appendChild(kidsCatcher);
+p.appendChild(parentsCatcher);
+p.appendChild(petsCatcher);
+
+e.appendChild(summaryCountryCatcher);
+
+c.appendChild(careerIntroCatcher)
+
+//makes a clickable link
+function createAList(arrayParam){
+newsFeed = document.createElement('div');
+for(i = 0;  i < arrayParam.length; i++){
+const oneList = document.createElement('a');
+oneList.className ="news-title";
+oneList.href = arrayParam[i].url;
+oneList.textContent = arrayParam[i].title;
+newsFeed.appendChild(oneList);
+}
+}
 
 function createA(arrayParam){
   theNews = document.createElement('div');
@@ -111,13 +131,10 @@ function createA(arrayParam){
   theNews.appendChild(titleList);
   }console.log(theNews);
   return theNews;
-  
 }
 
 let theNewschunk = createA(linData.newsfeed);
 document.querySelector("#news-feed").appendChild(theNewschunk);
-
-
 
 function makeh2Heading(object, ClassName) {
   headingh2 = document.createElement('h2');
@@ -128,8 +145,6 @@ function makeh2Heading(object, ClassName) {
 
 const heading = makeh2Heading(linData.executiveSummary.countryOfResidence, "h2heading");
 console.log(heading);
-
-
 
 //   loop for arrays in executive summary
 
@@ -143,6 +158,7 @@ function listItems(arrayParam,listName) {
   }
   return knownCollabs;
 }
+
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
 
