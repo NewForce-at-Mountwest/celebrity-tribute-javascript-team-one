@@ -64,6 +64,9 @@ const linData = {
     countryOfResidence: "United States"
   }
 }
+
+
+
 // writing loops for printing the personalLife object to the DOM. Individual functions for the the individual keys. Concatenate the arrays with only 2 items in them.
 
 function makePElement(paraValueParam) {
@@ -71,18 +74,6 @@ function makePElement(paraValueParam) {
   paragraph.textContent = paraValueParam;
   return paragraph
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
 console.log(bdayCatcher)
