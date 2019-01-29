@@ -101,7 +101,7 @@ p.appendChild(kidsCatcher);
 p.appendChild(parentsCatcher);
 p.appendChild(petsCatcher);
 
-e.appendChild(summaryCountryCatcher);
+
 
 c.appendChild(careerIntroCatcher)
 
@@ -158,7 +158,19 @@ function listItems(arrayParam,listName) {
   }
   return knownCollabs;
 }
+const exSummheading = makeh2Heading("Executive Summary","career-heading")
+e.appendChild(exSummheading);
+e.appendChild(summaryCountryCatcher);
 
+const exPara = listItems(linData.executiveSummary.knownCollaborations,"Known Collaborations")
+e.appendChild(exPara);
+
+const exalias = listItems(linData.executiveSummary.listOfAliases,"Known Aliases")
+e.appendChild(exalias)
+
+
+
+   
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
 
