@@ -134,7 +134,9 @@ function createA(arrayParam){
 }
 
 let theNewschunk = createA(linData.newsfeed);
-document.querySelector("#news-feed").appendChild(theNewschunk);
+const newsfeedHeading = makeh2Heading("Newsfeed","career-heading");
+n.appendChild(newsfeedHeading);
+n.appendChild(theNewschunk);
 
 function makeh2Heading(object, ClassName) {
   headingh2 = document.createElement('h2');
@@ -163,13 +165,17 @@ function listItems(arrayParam,listName) {
 // console.log(megan);
 
 // function for images with alt text and a caption below, hopefully!
-function img_create(src, alt, title) {
+function img_create(src, alttag, caption) {
   var img = document.createElement('img');
   img.src = src;
-  if (alt != null) img.alt = "Lin-Manuel Miranda";
-  if (alt != null) img.title = title;
+  img.alt = alttag;
+  img.title = caption;
   return img;
 }
+
+const img = img_create(linData.executiveSummary.image.photURL, "Picture of Lin", linData.executiveSummary.image.caption)
+console.log(img);
+e.appendChild(img);
 // const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
 
 const megan = listItems(linData.executiveSummary.knownCollaborations);
