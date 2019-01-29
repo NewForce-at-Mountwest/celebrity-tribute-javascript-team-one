@@ -196,23 +196,37 @@ function listItems(arrayParam,listName) {
 
 // const megan = listItems(linData.executiveSummary.knownCollaborations);
 // console.log(megan);
-
-// function for images with alt text and a caption below, hopefully!
-function img_create(urlLocation, alttag, captionwords) {
-  var picContainer = document.createElement('figure');
-  var img = document.createElement('img');
-  img.src = urlLocation;
-  img.alt = alttag;
-  picContainer.appendChild(img);
-  var caption = document.createElement('figcaption');
-  caption.textContent = captionwords;
-  picContainer.appendChild(caption);
-  return picContainer;
+function img_Lin(src, paragraphTitle) 
+{
+    const img = document.createElement('img');
+    const divIM = document.createElement('div');
+    const paraIM = document.createElement('p');
+    paraIM.textContent = paragraphTitle;
+    img.src = src;
+    divIM.appendChild(img);
+    divIM.appendChild(paraIM);
+    return divIM;
 }
+// Adding Image and Caption to Executive Summary
+let headShot = img_Lin(linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption)
+const Lin_headshot = document.querySelector("#executive-summary");
+Lin_headshot.appendChild(headShot);
+// function for images with alt text and a caption below, hopefully!
+// function img_create(urlLocation, alttag, captionwords) {
+//   var picContainer = document.createElement('figure');
+//   var img = document.createElement('img');
+//   img.src = urlLocation;
+//   img.alt = alttag;
+//   picContainer.appendChild(img);
+//   var caption = document.createElement('figcaption');
+//   caption.textContent = captionwords;
+//   picContainer.appendChild(caption);
+//   return picContainer;
+// }
 
-const img = img_create(linData.executiveSummary.image.photURL, "Picture of Lin", linData.executiveSummary.image.caption)
-console.log(img);
-e.appendChild(img);
+// const img = img_create(linData.executiveSummary.image.photURL, "Picture of Lin", linData.executiveSummary.image.caption)
+// console.log(img);
+// e.appendChild(img);
 // const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
 
 const megan = listItems(linData.executiveSummary.knownCollaborations);
