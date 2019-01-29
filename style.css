@@ -9,9 +9,9 @@ color: blue;
 li{
     color: purple;
 }
-p{
-    
-}
-h2{
-    font-family: 
+
+.personalKey{
+    font-weight: bold;
+    font-style: italic;   
+    color: blueviolet 
 }
