@@ -71,14 +71,14 @@ const paragraph = document.createElement('p');
 paragraph.textContent=paraValueParam;
 return paragraph
 }
-
+// this function creates p elements with a class tag 
 function makestyledPElement(paraValueParam, style){
   const paragraph = document.createElement('p');
   paragraph.className = style;
   paragraph.textContent=paraValueParam;
   return paragraph
   }
-
+//these variables call the functions above, creating the p elements
   const bdayKey = makestyledPElement("Birth Date", "personalKey")
   const blocationKey = makestyledPElement("Birth Location", "personalKey")
   const cityKey = makestyledPElement("City of Residence", "personalKey")
@@ -88,10 +88,7 @@ function makestyledPElement(paraValueParam, style){
   const kidsKey = makestyledPElement("(Kids)", "personalKey")
   const parentsKey = makestyledPElement("(Parents)", "personalKey")
   const petsKey = makestyledPElement("(Pets)", "personalKey")
-  // birthDate, birth location, city of residence, nationality
-  // family (spouse, kids, parents, pets)
-
-
+  
 const bdayCatcher = makePElement(linData.personalLife.birthDate)
 const blCatcher = makePElement(linData.personalLife.birthLocation)
 const cityCatcher = makePElement(linData.personalLife.cityOfResidence)
@@ -103,9 +100,7 @@ const petsCatcher = makePElement(linData.personalLife.family.pets)
 const careerIntroCatcher = makePElement(linData.career.shortIntro)
 const summaryCountryCatcher = makePElement(linData.executiveSummary.countryOfResidence)
 
-// throw other p elements into the respective div containers with document query selectors and append child methods
-
-// function makeNews(){newsFeed = document.createElement('div')
+// throw other p elements into the respective div containers with document query selectors 
 
 const p = document.querySelector("#personal-life")
 const e = document.querySelector("#executive-summary")
@@ -115,7 +110,7 @@ const c = document.querySelector("#career")
 const summaryHeading = makeh2Heading("Executive Summary", "career-heading");
 e.appendChild(summaryHeading);
 e.appendChild(summaryCountryCatcher);
-
+// appendChild method writes the objects to the DOM
 const personalHeading = makeh2Heading("Personal Information", "career-heading");
 p.appendChild(personalHeading);
 p.appendChild(bdayKey);
@@ -135,8 +130,6 @@ p.appendChild(parentsKey)
 p.appendChild(parentsCatcher);
 p.appendChild(petsKey)
 p.appendChild(petsCatcher);
-
-
 
 c.appendChild(careerIntroCatcher)
 
@@ -203,13 +196,6 @@ e.appendChild(exPara);
 const exalias = listItems(linData.executiveSummary.listOfAliases,"Known Aliases")
 e.appendChild(exalias)
 
-
-
-
-
-   
-// const megan = listItems(linData.executiveSummary.knownCollaborations);
-// console.log(megan);
 function img_Lin(src, paragraphTitle) 
 {
     const img = document.createElement('img');
@@ -225,23 +211,6 @@ function img_Lin(src, paragraphTitle)
 let headShot = img_Lin(linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption)
 const Lin_headshot = document.querySelector("#executive-summary");
 Lin_headshot.appendChild(headShot);
-// function for images with alt text and a caption below, hopefully!
-// function img_create(urlLocation, alttag, captionwords) {
-//   var picContainer = document.createElement('figure');
-//   var img = document.createElement('img');
-//   img.src = urlLocation;
-//   img.alt = alttag;
-//   picContainer.appendChild(img);
-//   var caption = document.createElement('figcaption');
-//   caption.textContent = captionwords;
-//   picContainer.appendChild(caption);
-//   return picContainer;
-// }
-
-// const img = img_create(linData.executiveSummary.image.photURL, "Picture of Lin", linData.executiveSummary.image.caption)
-// console.log(img);
-// e.appendChild(img);
-// const imgs = img_create(linData.executiveSummary.image.photURL," " ,linData.executiveSummary.image.caption)
 
 const megan = listItems(linData.executiveSummary.knownCollaborations);
 console.log(megan);
